@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valarie Cloud Engineering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 38px;
+        }
+
+        .architecture {
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .box {
+            border: 2px solid #38bdf8;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 300px;
+            background: #1e293b;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .arrow {
+            font-size: 28px;
+            color: #38bdf8;
+        }
+
+        .status {
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>☁️ Valarie Cloud Engineering</h1>
+
+    <p>Docker Compose Cloud Architecture</p>
+
+    <div class="architecture">
+
+        <div class="box">
+            🌎 Route 53
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="box">
+            ⚡ CloudFront
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="box">
+            🛡️ WAF
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="box">
+            ⚖️ Application Load Balancer
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="box">
+            🐳 Docker Container
+            <br><br>
+            Flask Application
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="box">
+            🗄️ RDS
+        </div>
+
+    </div>
+
+    <p class="status">🟢 APPLICATION RUNNING</p>
+
+</body>
+</html>

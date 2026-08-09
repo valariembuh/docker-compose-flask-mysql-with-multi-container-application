@@ -1,0 +1,25 @@
+services:
+
+  web:
+    build: .
+    container_name: valarie-compose-web
+    ports:
+      - "5001:5000"
+    restart: unless-stopped
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: valarie-compose-db
+    environment:
+      MYSQL_ROOT_PASSWORD: valarie-root
+      MYSQL_DATABASE: valarie_db
+      MYSQL_USER: valarie
+      MYSQL_PASSWORD: valarie-password
+    volumes:
+      - valarie-db-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  valarie-db-data:
