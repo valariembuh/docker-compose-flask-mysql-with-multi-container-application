@@ -33,31 +33,21 @@ jobs:
       - name: Run Docker container
         run: docker run -d --name ci-test -p 5000:5000 valarie-docker-app:test
 
+
       - name: Test application
-
         run: |
-
-         for i in {1..10}; do
-
-           if curl --fail http://localhost:5000; then
-
-             echo "Application is healthy"
-
+          for i in {1..10}; do
+            if curl --fail http://localhost:5000; then
+              echo "Application is healthy"
               exit 0
+            fi
+            echo "Waiting for application..."
+            sleep 2
+          done
 
-          fi
-
-          echo "Waiting for application..."
-
-          sleep 2
-
-         done
-
-    echo "Application failed health check"
-
-    docker logs ci-test
-
-    exit 1
+          echo "Application failed health check"
+          docker logs ci-test
+          exit 1
 
       - name: Cleanup
         if: always()
