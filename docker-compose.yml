@@ -5,20 +5,32 @@ services:
     container_name: valarie-compose-web
     ports:
       - "5001:5000"
+    mem_limit: 128m
     restart: unless-stopped
+
     depends_on:
-      - db
+     db:
+       condition: service_healthy
 
   db:
     image: mysql:8.0
     container_name: valarie-compose-db
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
     environment:
-      MYSQL_ROOT_PASSWORD: valarie-root
-      MYSQL_DATABASE: valarie_db
-      MYSQL_USER: valarie
-      MYSQL_PASSWORD: valarie-password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
     volumes:
       - valarie-db-data:/var/lib/mysql
+
     restart: unless-stopped
 
 volumes:
