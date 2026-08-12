@@ -1,0 +1,17 @@
+stages:
+  - test
+  - build
+
+test_python:
+  stage: test
+  image: python:3.12
+
+  script:
+    - pip install -r requirements.txt
+    - python -m py_compile app.py
+
+build_docker:
+  stage: build
+
+  script:
+    - docker build -t valarie-docker-app:test .
