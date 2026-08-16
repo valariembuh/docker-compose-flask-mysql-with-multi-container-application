@@ -1,8 +1,8 @@
-# Docker Compose – Flask + MySQL Multi-Container Application
+Docker Compose, Flask + MySQL Multi-Container Application
 
 ## Project Overview
 
-Built a multi-container application using Docker Compose with:
+This project is a multi-container application using Docker Compose with:
 
 * Flask web application
 * MySQL database
@@ -35,10 +35,10 @@ Persistent Database Data
 
 Docker Compose manages two services:
 
-* **web** — Flask application built from the Dockerfile
-* **db** — MySQL 8.0 container pulled from Docker Hub
+* **web** - Flask application built from the Dockerfile
+* **db** - MySQL 8.0 container pulled from Docker Hub
 
-The services communicate over the Compose-created network using the DNS name `db` instead of a hard-coded IP address.
+The services communicate over the network created by Compose using the DNS name `db` instead of a hard-coded IP address.
 
 ## Key Concepts Demonstrated
 
@@ -62,11 +62,11 @@ A database table was created with test data:
 Valarie Docker Persistence Test
 ```
 
-The MySQL container was then removed while the named Docker volume was preserved.
+The MySQL container was removed, but the named Docker volume was kept.
 
 A new MySQL container was created using the same volume.
 
-The original database table and data were successfully recovered.
+The original database table and data were successfully retrieved.
 
 **Result: Persistence test PASSED.**
 
@@ -108,7 +108,7 @@ Docker image:
 docker.io/valariembuh/valarie-docker-app:v1
 ```
 
-The image was pushed to Docker Hub, removed locally, pulled again from Docker Hub, and successfully run as a new container.
+The image was pushed to Docker Hub, removed from the local system, pulled again from Docker Hub, and successfully run as a new container.
 
 ## Evidence
 
@@ -131,4 +131,3 @@ Key evidence includes:
 **Lab 2 completed successfully.**
 
 This lab demonstrates practical Docker Compose, multi-container networking, persistent storage, service dependencies, failure recovery, and Docker Hub image deployment.
-
